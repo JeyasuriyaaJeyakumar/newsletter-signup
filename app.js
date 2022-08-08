@@ -2,8 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
-// const mailchimpClient = require("mailchimp_transactional")("95bc9118fce58fd9c5df258e39ccbc93-us10");
 
+//api keys cant be posted public
 
 const app = express();
 
@@ -41,15 +41,13 @@ app.post("/", function(req, res) {
   //converting json to string
   const jsonData = JSON.stringify(data);
 
-  // api key
-  // 95bc9118fce58fd9c5df258e39ccbc93-us10
-  // audience id: b3bd55f7c3
+  
 
-  const url = "https://us10.api.mailchimp.com/3.0/lists/b3bd55f7c3"
+  const url = "https://us10.api.mailchimp.com/3.0/lists/-key-"
 
   const options = {
     method: "POST",
-    auth: "Jeyasuriyaa:95bc9118fce58fd9c5df258e39ccbc93-us10"
+    auth: "Jeyasuriyaa:apikey-comes-here"
   }
   const request = https.request(url, options, function(response) {
 
